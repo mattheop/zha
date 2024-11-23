@@ -591,7 +591,10 @@ class ZenWithinThermostat(Thermostat):
 
 @MULTI_MATCH(
     cluster_handler_names=CLUSTER_HANDLER_THERMOSTAT,
-    manufacturers={"ZEHNDER GROUP VAUX ANDIGNY      "},
+    manufacturers={
+        "ZEHNDER GROUP VAUX ANDIGNY      ",
+        "ZEHNDER GROUP VAUX ANDIGNY"
+    },
     stop_on_match_group=CLUSTER_HANDLER_THERMOSTAT,
 )
 class ZehnderThermostat(Thermostat):
