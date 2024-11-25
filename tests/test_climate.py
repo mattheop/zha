@@ -565,12 +565,14 @@ async def test_climate_hvac_action_running_state_zehnder(
     ),
 )
 async def test_set_hvac_mode_zehnder(
-    device_climate_zehnder: Device,
     zha_gateway: Gateway,
     hvac_mode,
     sys_mode,
 ):
     """Test setting hvac mode."""
+    device_climate_zehnder = await device_climate_mock(
+        zha_gateway, CLIMATE_ZEHNDER, manuf=MANUF_ZEHNDER
+    )
 
     thrm_cluster = device_climate_zehnder.device.endpoints[1].thermostat
     entity: ThermostatEntity = get_entity(
